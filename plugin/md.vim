@@ -24,7 +24,7 @@ function! s:CompileMd()
     if exists('s:async_support')
         :AsyncRun pandoc "%" -o "%<".pdf && pkill -HUP mupdf
     else
-        execute "silent !pandoc % -o %:r.pdf &>/dev/null && pkill -HUP mupdf &> /dev/null"
+        execute "silent !pandoc % -o %:r.pdf -N &>/dev/null && pkill -HUP mupdf &> /dev/null"
     endif
     redraw!
 endfunction
